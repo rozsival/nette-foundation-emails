@@ -20,7 +20,7 @@ composer require vitrozsival/nette-foundation-emails
 Register `mailFactory` extension in your config:
 
 ```neon
-services:
+extensions:
 	mailFactory: NetteFoundationEmails\DI\MailFactoryExtension
 ```
 
