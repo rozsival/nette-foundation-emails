@@ -60,6 +60,8 @@ as it will be added if needed)
 - or a path relative to the configured resources directory path
 - if none provided, default `resources/foundation-emails.min.css` will be used
 
+The mail factory will use any valid Nette `ITranslator` from your DI container to translate your messages.
+
 ## Mail service
 
 You can start sending your email messages right out of the box without creating your own mail service. Simply use the
