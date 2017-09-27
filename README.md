@@ -29,7 +29,7 @@ Then you can configure the extension with following parameters:
 ```neon
 mailFactory:
 	cssFilename: 'emails.css' # default stylesheet filename located in resources directory
-	resourcesDir: ./resources # default resources directory path (stylesheets to be inlined, images, etc.)
+	resourcesDir: ./resources # default resources directory path (stylesheets, images, etc.)
 	templatesDir: ./templates # default message templates directory path
 ```
 
@@ -37,14 +37,14 @@ mailFactory:
 
 The `MailFactory` has only one method called `create` to be used with your email messages. It accepts two arguments:
 
-### `messageTemplate`
+#### `messageTemplate`
 
 - an absolute path to your own message template
 - or a path relative to the configured templates directory path (if using relative path you can omit `.latte` extension
 as it will be added if needed)
 - if no template is found the method throws `NetteFoundationEmails\Exceptions\MailFactoryException`
 
-### `cssFilename` (optional)
+#### `cssFilename` (optional)
 
 - an absolute path to your own build of Foundation for Emails stylesheet
 - or a path relative to the configured resources directory path
