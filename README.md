@@ -48,7 +48,8 @@ as it will be added if needed)
 
 - an absolute path to your own build of Foundation for Emails stylesheet
 - or a path relative to the configured resources directory path
-- if none provided, default `resources/foundation-emails.min.css` will be used
+- if none provided, the factory will look for configured `cssFilename` inside the configured `resourcesDir`
+- if no stylesheet is found at all, default `resources/foundation-emails.min.css` will be used
 
 The mail factory will use any valid Nette `ITranslator` from your DI container to translate your messages.
 
