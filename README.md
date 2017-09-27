@@ -28,6 +28,8 @@ Then you can configure the extension with following parameters:
 
 ```neon
 mailFactory:
+	email: 'your@email.com' # default email to be set for messages as 'sent from'
+	name: 'Your Name' # default name to be set for messages as 'sent from'
 	cssFilename: 'emails.css' # default stylesheet filename located in resources directory
 	resourcesDir: ./resources # default resources directory path (stylesheets, images, etc.)
 	templatesDir: ./templates # default message templates directory path
@@ -57,13 +59,7 @@ The mail factory will use any valid Nette `ITranslator` from your DI container t
 
 You can also use the simple `MailService` that ships with this package to send messages created
 with the `MailFactory`. The service gets registered with the `MailFactoryExtension` therefor it is present in your DI
-container. You can use following parameters in your config to set two default properties for the service:
-
-```neon
-mailFactory:
-	email: 'your@email.com' # default email to be set for messages as 'sent from'
-	name: 'Your Name' # default name to be set for messages as 'sent from'
-```
+container.
 
 The service has three methods - to `createMessage` through the `MailFactory` (this method accepts same arguments
 as `create` method of `MailFactory` and only returns the resulting message), to create a `link` to your website
