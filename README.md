@@ -44,7 +44,7 @@ The `MailFactory` has only one method called `create` to be used with your email
 extension as it will be added if needed)
 - if no template is found, the method throws `MailFactoryException`
 
-#### `cssFilename` (optional)
+#### `cssFile` (optional)
 
 - an absolute path to your own build of Foundation for Emails stylesheet
 - or a path relative to the configured resources directory path
