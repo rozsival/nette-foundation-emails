@@ -1,0 +1,3 @@
+services:
+	mailService: NetteFoundationEmails\MailService
+	templateFactory: NetteFoundationEmails\TemplateFactory
