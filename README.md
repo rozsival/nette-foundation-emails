@@ -42,7 +42,7 @@ The `MailFactory` has only one method called `create` to be used with your email
 - an absolute path to your own message template
 - or a path relative to the configured templates directory path (if using a relative path, you can omit `.latte`
 extension as it will be added if needed)
-- if no template is found the method throws `MailFactoryException`
+- if no template is found, the method throws `MailFactoryException`
 
 #### `cssFilename` (optional)
 

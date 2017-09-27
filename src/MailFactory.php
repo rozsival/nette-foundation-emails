@@ -79,8 +79,6 @@ class MailFactory extends Object
 	 */
 	public function create(string $messageTemplate, string $cssFile = NULL): Message
 	{
-		$message = new Message();
-
 		if (!is_file($messageTemplate)) {
 			if (strpos($messageTemplate, self::TEMPLATES_EXT) === FALSE) {
 				$messageTemplate .= self::TEMPLATES_EXT;
@@ -109,6 +107,7 @@ class MailFactory extends Object
 			$css = __DIR__ . '/resources/foundation-emails.min.css';
 		}
 
+		$message = new Message();
 		$message->setCss($css)
 			->setResourcesDir($this->resourcesDir)
 			->setTemplate($template)
