@@ -1,8 +1,8 @@
 # Nette Foundation for Emails
 
-[ZURB Foundation for Emails](https://github.com/zurb/foundation-emails) with Inky markup integration into 
-Nette framework including a simple mail service to create and send email messages generated from 
-[nette/latte](https://github.com/nette/latte) templates with provided mail factory.
+[ZURB Foundation for Emails](https://github.com/zurb/foundation-emails) integration into Nette framework 
+including a mail factory to create email messages with [nette/latte](https://github.com/nette/latte) templates using
+[Inky](https://github.com/zurb/inky) markup and an optional simple mail service to send the messages.
 
 ## Requirements
 
@@ -40,15 +40,15 @@ The `MailFactory` has only one method called `create` to be used with your email
 #### `messageTemplate`
 
 - an absolute path to your own message template
-- or a path relative to the configured templates directory path (if using relative path you can omit `.latte` extension
-as it will be added if needed)
-- if no template is found the method throws `NetteFoundationEmails\Exceptions\MailFactoryException`
+- or a path relative to the configured templates directory path (if using a relative path, you can omit `.latte`
+extension as it will be added if needed)
+- if no template is found the method throws `MailFactoryException`
 
 #### `cssFilename` (optional)
 
 - an absolute path to your own build of Foundation for Emails stylesheet
 - or a path relative to the configured resources directory path
-- if none provided, the factory will look for configured `cssFilename` inside the configured `resourcesDir`
+- if none provided, the factory will look for the configured `cssFilename` inside the configured `resourcesDir`
 - if no stylesheet is found at all, default `resources/foundation-emails.min.css` will be used
 
 The mail factory will use any valid Nette `ITranslator` from your DI container to translate your messages.
@@ -69,6 +69,8 @@ The service has three methods - to `createMessage` through the `MailFactory` (th
 as `create` method of `MailFactory` and only returns the resulting message), to create a `link` to your website
 using Nette `LinkGenerator` and to send the created `Message`. The `sendMessage` method throws `MailServiceException`
 if the message could not be sent through Nette `IMailer`.
+
+Anyway, feel free to implement the `MailFactory` into your own mail service as you need.
 
 ## License
 
