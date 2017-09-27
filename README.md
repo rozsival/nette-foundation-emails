@@ -1,7 +1,7 @@
 # Nette Foundation for Emails
 
 [ZURB Foundation for Emails](https://github.com/zurb/foundation-emails) with Inky markup integration into 
-Nette framework including a simple mail service to send email messages generated from 
+Nette framework including a simple mail service to create and send email messages generated from 
 [nette/latte](https://github.com/nette/latte) templates with provided mail factory.
 
 ## Requirements
@@ -55,8 +55,8 @@ The mail factory will use any valid Nette `ITranslator` from your DI container t
 
 ## Mail service
 
-You can also use the simple `NetteFoundationEmails\MailService` that ships with this package to send messages created
-with the mail factory. The service gets registered with the `MailFactoryExtension` therefor it is present in your DI
+You can also use the simple `MailService` that ships with this package to send messages created
+with the `MailFactory`. The service gets registered with the `MailFactoryExtension` therefor it is present in your DI
 container. You can use following parameters in your config to set two default properties for the service:
 
 ```neon
@@ -65,11 +65,10 @@ mailFactory:
 	name: 'Your Name' # default name to be set for messages as 'sent from'
 ```
 
-The service has three simple methods to `createMessage` through the `MailFactory`
-(this method accepts same arguments as `create` method of `MailFactory` and only returns the resulting message),
-to create a `link` to your website using Nette `LinkGenerator` and to send created `NetteFoundationEmails\Message`.
-The `sendMessage` method throws `NetteFoundationEmails\Exceptions\MailServiceException` if the message could not be sent
-through Nette `IMailer`.
+The service has three methods - to `createMessage` through the `MailFactory` (this method accepts same arguments
+as `create` method of `MailFactory` and only returns the resulting message), to create a `link` to your website
+using Nette `LinkGenerator` and to send the created `Message`. The `sendMessage` method throws `MailServiceException`
+if the message could not be sent through Nette `IMailer`.
 
 ## License
 
