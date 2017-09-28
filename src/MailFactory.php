@@ -85,13 +85,13 @@ class MailFactory extends Object
 			}
 
 			$messageTemplate = $this->templatesDir . '/' . $messageTemplate;
-		}
 
-		if (!is_file($messageTemplate)) {
-			throw new MailFactoryException(
-				'Email template ' . $messageTemplate . ' not found.',
-				MailFactoryException::TEMPLATE_NOT_FOUND
-			);
+			if (!is_file($messageTemplate)) {
+				throw new MailFactoryException(
+					'Email template ' . $messageTemplate . ' not found.',
+					MailFactoryException::TEMPLATE_NOT_FOUND
+				);
+			}
 		}
 
 		$template = $this->templateFactory->create($messageTemplate);
