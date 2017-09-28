@@ -2,8 +2,8 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-\Tester\Environment::setup();
+define('TEMP_DIR', __DIR__ . '/temp');
 date_default_timezone_set('Europe/Prague');
 
-define('TEMP_DIR', __DIR__ . '/temp');
+\Tester\Environment::setup();
 \Tracy\Debugger::$logDirectory = TEMP_DIR;
