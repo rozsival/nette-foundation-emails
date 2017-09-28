@@ -50,7 +50,11 @@ class MailServiceTest extends TestCase
 
 			$mailService = new MailService($this->createLinkGenerator(), $this->createMailFactory(), $mailer);
 			$mailService->sendMessage(new Message());
-		}, MailServiceException::class);
+		},
+			MailServiceException::class,
+			NULL,
+			MailServiceException::MAIL_NOT_SENT
+		);
 	}
 
 	private function createMailService()
