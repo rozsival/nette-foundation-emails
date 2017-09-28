@@ -34,8 +34,10 @@ class MailFactoryTest extends TestCase
 			$this->createTranslator(),
 			self::RESOURCES_DIR
 		);
-		$expectedMessage = $this->createMessage('template.latte', self::RESOURCES_DIR . '/resource.css');
-		$message = $mailFactory->create('template', self::RESOURCES_DIR . '/resource.css');
+
+		$css = self::RESOURCES_DIR . '/resource.css';
+		$expectedMessage = $this->createMessage('template.latte', $css);
+		$message = $mailFactory->create('template', $css);
 		$this->assertMessage($expectedMessage, $message);
 	}
 
@@ -46,6 +48,7 @@ class MailFactoryTest extends TestCase
 			$this->createTranslator(),
 			self::RESOURCES_DIR
 		);
+
 		$expectedMessage = $this->createMessage('template.latte', self::RESOURCES_DIR . '/resource.css');
 		$message = $mailFactory->create('template', 'resource.css');
 		$this->assertMessage($expectedMessage, $message);
@@ -53,15 +56,16 @@ class MailFactoryTest extends TestCase
 
 	public function testMessageWithDefaultCssCreated()
 	{
+		$default = '/default';
 		$mailFactory = $this->createMailFactory(
 			$this->createTemplateFactory(),
 			$this->createTranslator(),
-			self::RESOURCES_DIR . '/default'
+			self::RESOURCES_DIR . $default
 		);
 
 		$expectedMessage = $this->createMessage(
 			'template.latte',
-			self::RESOURCES_DIR . '/default/' . self::DEFAULT_CSS)
+			self::RESOURCES_DIR . $default .'/' . self::DEFAULT_CSS)
 		;
 
 		$message = $mailFactory->create('template');
