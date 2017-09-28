@@ -1,8 +1,9 @@
 # Nette Foundation for Emails
 
-[ZURB Foundation for Emails](https://github.com/zurb/foundation-emails) integration into Nette framework 
-including a mail factory to create email messages with [nette/latte](https://github.com/nette/latte) templates using
-[Inky](https://github.com/zurb/inky) markup and an optional simple mail service to send the messages.
+[ZURB Foundation for Emails](https://github.com/zurb/foundation-emails) integration into
+[Nette framework](https://github.com/nette/nette) consisting of a mail factory to create email messages
+with [nette/latte](https://github.com/nette/latte) templates using [Inky](https://github.com/zurb/inky) markup
+and an optional simple mail service to send the messages.
 
 ## Requirements
 
