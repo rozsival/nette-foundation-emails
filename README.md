@@ -5,6 +5,10 @@
 with [nette/latte](https://github.com/nette/latte) templates using [Inky](https://github.com/zurb/inky) markup
 and an optional simple mail service to send the messages.
 
+-----
+
+[![Licence](https://img.shields.io/packagist/l/vitrozsival/nette-foundation-emails.svg?style=flat-square)](https://packagist.org/packages/vitrozsival/nette-foundation-emails)
+
 ## Requirements
 
 - PHP 7.0+
