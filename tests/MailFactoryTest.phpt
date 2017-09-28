@@ -23,6 +23,7 @@ class MailFactoryTest extends TestCase
 	const EMAIL = 'email@domain.com';
 	const NAME = 'Jožko Kukuricúdus';
 	const DEFAULT_CSS = 'emails.css';
+	const FALLBACK_CSS = 'foundation-emails.min.css';
 	const TEMPLATES_DIR = __DIR__ . '/templates';
 	const RESOURCES_DIR = __DIR__ . '/resources';
 
@@ -38,7 +39,7 @@ class MailFactoryTest extends TestCase
 		$this->assertMessage($expectedMessage, $message);
 	}
 
-	public function testMessageWithCssInResourcesDirCreated()
+	public function testMessageWithCssFoundInResourcesDirCreated()
 	{
 		$mailFactory = $this->createMailFactory(
 			$this->createTemplateFactory(),
@@ -74,6 +75,7 @@ class MailFactoryTest extends TestCase
 			$this->createTranslator(),
 			self::RESOURCES_DIR
 		);
+
 		$expectedMessage = $this->createMessage('template.latte');
 		$message = $mailFactory->create('template', __DIR__ . '/test.css');
 		$this->assertMessage($expectedMessage, $message);
@@ -104,6 +106,7 @@ class MailFactoryTest extends TestCase
 		Assert::equal($expectedMessage->getFrom(), $message->getFrom());
 		Assert::equal($expectedMessage->getTemplate()->getFile(), $message->getTemplate()->getFile());
 		Assert::equal($expectedMessage->getBody(), $message->getBody());
+		Assert::equal($expectedMessage->getHtmlBody(), $message->getHtmlBody());
 		Assert::equal($expectedMessage->getTranslator(), $message->getTranslator());
 	}
 
@@ -129,7 +132,7 @@ class MailFactoryTest extends TestCase
 		$templateFactory = $this->createTemplateFactory();
 		$message = new Message();
 		$message->setResourcesDir(self::RESOURCES_DIR)
-			->setCss($css ?: __DIR__ . '/../src/resources/foundation-emails.min.css')
+			->setCss($css ?: self::FALLBACK_CSS)
 			->setTranslator($this->createTranslator())
 			->setTemplate($templateFactory->create(self::TEMPLATES_DIR . '/' . $template))
 			->setFrom(self::EMAIL, self::NAME);
