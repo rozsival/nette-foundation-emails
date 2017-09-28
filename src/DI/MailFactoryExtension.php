@@ -14,6 +14,7 @@ class MailFactoryExtension extends CompilerExtension
 	const NAME = 'name';
 	const RESOURCES_DIR = 'resourcesDir';
 	const TEMPLATES_DIR = 'templatesDir';
+	const PREFIX = 'netteFoundationEmails';
 
 	/**
 	 * @var array
@@ -28,7 +29,7 @@ class MailFactoryExtension extends CompilerExtension
 	{
 		$config = $this->getConfig($this->defaults);
 		$builder = $this->getContainerBuilder();
-		$builder->addDefinition($this->prefix('netteFoundationEmails'))
+		$builder->addDefinition($this->prefix(self::PREFIX))
 			->setFactory(MailFactory::class, [
 				'config' => $config
 			]);
@@ -36,7 +37,7 @@ class MailFactoryExtension extends CompilerExtension
 		$this->compiler->loadDefinitions(
 			$builder,
 			$this->loadFromFile(__DIR__ . '/../config/services.neon')['services'],
-			$this->name
+			$this->prefix(self::PREFIX)
 		);
 	}
 
