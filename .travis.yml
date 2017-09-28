@@ -4,7 +4,7 @@ php:
   - 7.0
 
 script:
-  - tests/bin/coverage.sh
+  - vendor/bin/tester tests -p php-cgi -s -c tests/php.ini --coverage coverage.xml --coverage-src src
 
 before_script:
   - phpenv config-add tests/php.ini
