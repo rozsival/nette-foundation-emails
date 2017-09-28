@@ -69,7 +69,7 @@ class MailService extends Object
 		try {
 			$this->mailer->send($mail);
 		} catch (SendException $sendException) {
-			throw new MailServiceException('Email could not be sent.', MailServiceException::MAIL_NOT_SENT);
+			throw new MailServiceException($sendException->getMessage(), MailServiceException::MAIL_NOT_SENT);
 		}
 	}
 
