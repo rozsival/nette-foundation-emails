@@ -16,11 +16,13 @@ class MailFactoryExtensionTest extends TestCase
 
 	public function testLoadConfiguration()
 	{
-		$builder = new ContainerBuilder();
-		$compiler = new Compiler($builder);
-		$extension = new MailFactoryExtension();
-		$extension->setCompiler($compiler, 'test');
-		Assert::equal(NULL, $extension->loadConfiguration());
+		Assert::noError(function () {
+			$builder = new ContainerBuilder();
+			$compiler = new Compiler($builder);
+			$extension = new MailFactoryExtension();
+			$extension->setCompiler($compiler, 'test');
+			$extension->loadConfiguration();
+		});
 	}
 
 }

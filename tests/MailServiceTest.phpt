@@ -33,12 +33,14 @@ class MailServiceTest extends TestCase
 
 	public function testSendMessage()
 	{
-		$mailer = $this->createMailer();
-		$mailer->shouldReceive('send')
-			->andReturnNull();
+		Assert::noError(function () {
+			$mailer = $this->createMailer();
+			$mailer->shouldReceive('send')
+				->andReturnNull();
 
-		$mailService = new MailService($this->createLinkGenerator(), $this->createMailFactory(), $mailer);
-		Assert::equal(NULL, $mailService->sendMessage(new Message()));
+			$mailService = $this->createMailService($mailer);
+			$mailService->sendMessage(new Message());
+		});
 	}
 
 	public function testSendMessageFailure()
@@ -48,7 +50,7 @@ class MailServiceTest extends TestCase
 			$mailer->shouldReceive('send')
 				->andThrow(SendException::class);
 
-			$mailService = new MailService($this->createLinkGenerator(), $this->createMailFactory(), $mailer);
+			$mailService = $this->createMailService($mailer);
 			$mailService->sendMessage(new Message());
 		},
 			MailServiceException::class,
@@ -57,9 +59,13 @@ class MailServiceTest extends TestCase
 		);
 	}
 
-	private function createMailService()
+	private function createMailService($mailer = NULL)
 	{
-		return new MailService($this->createLinkGenerator(), $this->createMailFactory(), $this->createMailer());
+		return new MailService(
+			$this->createLinkGenerator(),
+			$this->createMailFactory(),
+			$mailer ?: $this->createMailer()
+		);
 	}
 
 	private function createLinkGenerator()
