@@ -21,5 +21,10 @@
     },
     "autoload": {
         "classmap": ["src/"]
+    },
+    "require-dev": {
+        "nette/tester": "^2.0",
+        "mockery/mockery": "^0.9.9",
+        "tracy/tracy": "^2.4"
     }
 }

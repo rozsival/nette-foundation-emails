@@ -1,0 +1,9 @@
+dir=`dirname $0`
+base="$dir/../.."
+tests="$dir/.."
+
+if [ ! -f "$tests/php.local.ini" ]; then
+	ini="$tests/php.ini"
+else
+	ini="$tests/php.local.ini"
+fi
