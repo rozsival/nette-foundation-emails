@@ -9,7 +9,8 @@ and an optional simple mail service to send the messages.
 
 [![Build Status](https://travis-ci.org/teekey99/nette-foundation-emails.svg?branch=master)](https://travis-ci.org/teekey99/nette-foundation-emails)
 [![Coverage Status](https://coveralls.io/repos/github/teekey99/nette-foundation-emails/badge.svg)](https://coveralls.io/github/teekey99/nette-foundation-emails)
-[![Licence](https://img.shields.io/packagist/l/vitrozsival/nette-foundation-emails.svg?style=flat-square)](https://packagist.org/packages/vitrozsival/nette-foundation-emails)
+[![Packagist](https://img.shields.io/packagist/v/vitrozsival/nette-foundation-emails.svg)](https://packagist.org/packages/vitrozsival/nette-foundation-emails)
+[![License](https://img.shields.io/packagist/l/vitrozsival/nette-foundation-emails.svg)](LICENSE)
 
 ## Requirements
 
